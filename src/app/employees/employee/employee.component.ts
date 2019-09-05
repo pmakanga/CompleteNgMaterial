@@ -15,6 +15,7 @@ export class EmployeeComponent implements OnInit {
                { id: 3, value: 'Dep 3' }];
 
   ngOnInit() {
+    this.service.getEmployees();
   }
 
   onClear() {
@@ -22,6 +23,15 @@ export class EmployeeComponent implements OnInit {
     this.service.form.reset();
     this.service.initializeFormGroup();
     this.service.form.patchValue({$key});
+  }
+
+  onSubmit() {
+    if (this.service.form.valid) {
+      this.service.insertEmployee(this.service.form.value);
+      this.service.form.reset();
+      this.service.initializeFormGroup();
+      // this.notificationService.success(':: Submitted successfully');
+    }
   }
 
 }
