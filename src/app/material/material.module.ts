@@ -19,7 +19,8 @@ import { MatToolbar } from '@angular/material';
     Material.MatSelectModule, // mat-select - dropdown
     Material.MatCheckboxModule, // mat-checkbox - checkbox
     Material.MatButtonModule, // for button
-    Material.MatToolbarModule
+    Material.MatToolbarModule,
+    Material.MatSnackBarModule
   ],
   exports: [
     Material.MatGridListModule,
@@ -31,10 +32,8 @@ import { MatToolbar } from '@angular/material';
     Material.MatSelectModule,
     Material.MatCheckboxModule,
     Material.MatButtonModule,
-    Material.MatToolbarModule
-
-
-
+    Material.MatToolbarModule,
+    Material.MatSnackBarModule
   ]
 })
 export class MaterialModule { }
