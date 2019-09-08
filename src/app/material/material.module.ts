@@ -24,7 +24,8 @@ import { MatToolbar } from '@angular/material';
     Material.MatTableModule,
     Material.MatIconModule,
     Material.MatPaginatorModule,
-    Material.MatSortModule
+    Material.MatSortModule,
+    Material.MatDialogModule
   ],
   exports: [
     Material.MatGridListModule,
@@ -41,7 +42,8 @@ import { MatToolbar } from '@angular/material';
     Material.MatTableModule,
     Material.MatIconModule,
     Material.MatPaginatorModule,
-    Material.MatSortModule
+    Material.MatSortModule,
+    Material.MatDialogModule
   ]
 })
 export class MaterialModule { }

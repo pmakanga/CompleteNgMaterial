@@ -15,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -36,7 +37,8 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [EmployeeService, DepartmentService],
-  bootstrap: [AppComponent]
+  providers: [EmployeeService, DepartmentService, DatePipe],
+  bootstrap: [AppComponent],
+  entryComponents: [EmployeeComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/_services/employee.service';
 import { DepartmentService } from 'src/app/_services/department.service';
 import { NotificationService } from 'src/app/_services/notification.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-employee',
@@ -11,7 +12,7 @@ import { NotificationService } from 'src/app/_services/notification.service';
 export class EmployeeComponent implements OnInit {
 
   constructor(private service: EmployeeService, private departmentService: DepartmentService,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService, public dialogRef: MatDialogRef<EmployeeComponent>) { }
 
 
   ngOnInit() {
@@ -27,11 +28,22 @@ export class EmployeeComponent implements OnInit {
 
   onSubmit() {
     if (this.service.form.valid) {
-      this.service.insertEmployee(this.service.form.value);
+      if (!this.service.form.get('$key').value) {
+        this.service.insertEmployee(this.service.form.value);
+      } else {
+      this.service.updateEmployee(this.service.form.value);
+      }
       this.service.form.reset();
       this.service.initializeFormGroup();
       this.notificationService.success(':: Submitted successfully');
+      this.onClose();
     }
+  }
+
+  onClose() {
+    this.service.form.reset();
+    this.service.initializeFormGroup();
+    this.dialogRef.close();
   }
 
 }
