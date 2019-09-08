@@ -20,7 +20,11 @@ import { MatToolbar } from '@angular/material';
     Material.MatCheckboxModule, // mat-checkbox - checkbox
     Material.MatButtonModule, // for button
     Material.MatToolbarModule,
-    Material.MatSnackBarModule
+    Material.MatSnackBarModule,
+    Material.MatTableModule,
+    Material.MatIconModule,
+    Material.MatPaginatorModule,
+    Material.MatSortModule
   ],
   exports: [
     Material.MatGridListModule,
@@ -33,7 +37,11 @@ import { MatToolbar } from '@angular/material';
     Material.MatCheckboxModule,
     Material.MatButtonModule,
     Material.MatToolbarModule,
-    Material.MatSnackBarModule
+    Material.MatSnackBarModule,
+    Material.MatTableModule,
+    Material.MatIconModule,
+    Material.MatPaginatorModule,
+    Material.MatSortModule
   ]
 })
 export class MaterialModule { }

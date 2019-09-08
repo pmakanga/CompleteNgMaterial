@@ -11,7 +11,7 @@ import { EmployeeService } from './_services/employee.service';
 import { DepartmentService } from './_services/department.service';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
@@ -33,6 +33,7 @@ import { environment } from 'src/environments/environment';
     MaterialModule,
     ReactiveFormsModule,
     AngularFireDatabaseModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [EmployeeService, DepartmentService],
