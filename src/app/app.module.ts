@@ -16,6 +16,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { DatePipe } from '@angular/common';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 
@@ -25,7 +26,8 @@ import { DatePipe } from '@angular/common';
     AppComponent,
     EmployeesComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,6 @@ import { DatePipe } from '@angular/common';
   ],
   providers: [EmployeeService, DepartmentService, DatePipe],
   bootstrap: [AppComponent],
-  entryComponents: [EmployeeComponent]
+  entryComponents: [EmployeeComponent, MatConfirmDialogComponent]
 })
 export class AppModule { }

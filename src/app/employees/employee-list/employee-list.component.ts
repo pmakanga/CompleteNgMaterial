@@ -4,6 +4,8 @@ import { MatTableDataSource, MatSort, MatPaginator, MatDialog, MatDialogConfig  
 import { DepartmentService } from 'src/app/_services/department.service';
 import { EmployeeComponent } from '../employee/employee.component';
 import { NotificationService } from 'src/app/_services/notification.service';
+import { DialogService } from 'src/app/_services/dialog.service';
+import { MatConfirmDialogComponent } from 'src/app/mat-confirm-dialog/mat-confirm-dialog.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -13,7 +15,8 @@ import { NotificationService } from 'src/app/_services/notification.service';
 export class EmployeeListComponent implements OnInit {
 
   constructor(private service: EmployeeService, private departmentService: DepartmentService,
-              private dialog: MatDialog, private notificationService: NotificationService) { }
+              private dialog: MatDialog, private notificationService: NotificationService,
+              private dialogService: DialogService) { }
 
   listData: MatTableDataSource<any>;
   displayedColums: string[] = ['fullName', 'email', 'mobile', 'city', 'actions'];
@@ -73,10 +76,18 @@ export class EmployeeListComponent implements OnInit {
   }
 
   onDelete($key) {
-    if (confirm('Are you sure to delete this record ?')) {
-    this.service.deleteEmployee($key);
-    this.notificationService.warn('! Deleted successfully');
-    }
+    // if (confirm('Are you sure to delete this record ?')) {
+    // this.service.deleteEmployee($key);
+    // this.notificationService.warn('! Deleted successfully');
+    // }
+    this.dialogService.openConfirmDialog('Are you sure of deleting this record ?')
+      .afterClosed().subscribe(res => {
+        if (res) {
+          this.service.deleteEmployee($key);
+          this.notificationService.warn('! Deleted successfully');
+        }
+      });
+
   }
 
 }

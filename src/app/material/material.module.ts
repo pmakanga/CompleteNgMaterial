@@ -25,7 +25,7 @@ import { MatToolbar } from '@angular/material';
     Material.MatIconModule,
     Material.MatPaginatorModule,
     Material.MatSortModule,
-    Material.MatDialogModule
+    Material.MatDialogModule,
   ],
   exports: [
     Material.MatGridListModule,
